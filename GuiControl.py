@@ -1,16 +1,13 @@
-import kivy
-
-'''
 from kivy.app import App
-from kivy.uix.label import Label
+from kivy.lang import Builder
 
 
-class MyApp(App):
+root = Builder.load_file('MainGui.kv')
+
+class MainApp(App):
 
     def build(self):
-        return Label(text='Hello world')
-
+        return root
 
 if __name__ == '__main__':
-    MyApp().run()
-'''
+    MainApp().run()
