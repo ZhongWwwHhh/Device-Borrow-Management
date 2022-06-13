@@ -1,3 +1,6 @@
+from kivy.core.text import LabelBase
+LabelBase.register(name='msyh',fn_regular='chinese.msyh.ttf')
+
 from kivy.app import App
 from kivy.lang import Builder
 

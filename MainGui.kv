@@ -1,12 +1,23 @@
 FloatLayout:
     canvas.before:
         Color:
-            rgba: 0.75, 0.75, 0.75, 1
+            rgba: 0.9, 0.9, 0.9, 1
         Rectangle:
             # self here refers to the widget i.e FloatLayout
             pos: self.pos
             size: self.size
     Button:
-        text: 'Hello World!!'
-        size_hint: .5, .5
-        pos_hint: {'center_x':.5, 'center_y': .5}
+        text: '出借'
+        font_name: 'msyh'
+        size_hint: .33, .67
+        pos_hint: {'x': .04, 'y': .17}
+    Button:
+        text: '归还'
+        font_name: 'msyh'
+        size_hint: .33, .67
+        pos_hint: {'x': .42, 'y': .17}
+    Button:
+        text: '管理'
+        font_name: 'msyh'
+        size_hint: .17, .67
+        pos_hint: {'x': .79, 'y': .17}
