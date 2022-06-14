@@ -19,7 +19,7 @@ def DeQrCode():
     capture = cv2.VideoCapture(0)
     while True:
         ret, frame = capture.read()
-        if ret == True:
+        if ret:
             rawCodes = decode(frame, symbols=None)
             for codeContent in rawCodes:
                 codeData = codeContent.data.decode('utf-8')

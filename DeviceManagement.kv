@@ -1,4 +1,10 @@
-FloatLayout:
+#:kivy 2.0.0
+
+<ZhBtn@Button>:
+    font_name: 'msyh'
+    font_size: 70
+
+<MainMenu>:
     canvas.before:
         Color:
             rgba: 0.9, 0.9, 0.9, 1
@@ -6,18 +12,16 @@ FloatLayout:
             # self here refers to the widget i.e FloatLayout
             pos: self.pos
             size: self.size
-    Button:
+    
+    ZhBtn:
         text: '出借'
-        font_name: 'msyh'
         size_hint: .33, .67
         pos_hint: {'x': .04, 'y': .17}
-    Button:
+    ZhBtn:
         text: '归还'
-        font_name: 'msyh'
         size_hint: .33, .67
         pos_hint: {'x': .42, 'y': .17}
-    Button:
+    ZhBtn:
         text: '管理'
-        font_name: 'msyh'
         size_hint: .17, .67
         pos_hint: {'x': .79, 'y': .17}
