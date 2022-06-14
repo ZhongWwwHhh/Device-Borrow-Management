@@ -1,13 +1,14 @@
-#:kivy 2.0.0
+#:kivy 2.1.0
 
 <ZhBtn@Button>:
     font_name: 'msyh'
     font_size: 70
+    background_color: 0, 0.7, 1, 0.5
 
 <MainMenu>:
     canvas.before:
         Color:
-            rgba: 0.9, 0.9, 0.9, 1
+            rgba: 1, 1, 1, 1
         Rectangle:
             # self here refers to the widget i.e FloatLayout
             pos: self.pos
@@ -17,11 +18,14 @@
         text: '出借'
         size_hint: .33, .67
         pos_hint: {'x': .04, 'y': .17}
+        on_release: root.releaseBorrowBtn(self)
     ZhBtn:
         text: '归还'
         size_hint: .33, .67
         pos_hint: {'x': .42, 'y': .17}
+        on_release: root.releaseReturnBtn(self)
     ZhBtn:
         text: '管理'
         size_hint: .17, .67
         pos_hint: {'x': .79, 'y': .17}
+        on_release: root.releaseManageBtn(self)

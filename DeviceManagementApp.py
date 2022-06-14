@@ -9,7 +9,16 @@ from kivy.properties import ObjectProperty, StringProperty
 
 
 class MainMenu(FloatLayout):
-    pass
+
+    def releaseBorrowBtn(self, arg):
+        print('按下并释放时触发事件已运行')
+        print('aaa')
+    
+    def releaseReturnBtn(self, arg):
+        print('2')
+    
+    def releaseManageBtn(self, arg):
+        print('3')
 
 
 class DeviceManagementApp(App):
