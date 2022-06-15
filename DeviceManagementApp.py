@@ -1,7 +1,6 @@
 from kivy.core.text import LabelBase
 LabelBase.register(name='msyh',fn_regular='chinese.msyh.ttf')
 
-import kivy
 
 from kivy.uix.floatlayout import FloatLayout
 from kivy.app import App
@@ -11,8 +10,8 @@ from kivy.properties import ObjectProperty, StringProperty
 class MainMenu(FloatLayout):
 
     def releaseBorrowBtn(self, arg):
-        print('按下并释放时触发事件已运行')
-        print('aaa')
+        from Basic.Borrow import Borrow
+        Borrow.borrowStart()
     
     def releaseReturnBtn(self, arg):
         print('2')
