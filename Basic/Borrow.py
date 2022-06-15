@@ -8,7 +8,7 @@ class Borrow:
         pass
     
     # main processing
-    def borrowStart():
+    def borrowStart(self):
         # start borrow process
         print('borrow started')
 

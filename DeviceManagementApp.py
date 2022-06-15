@@ -10,8 +10,9 @@ from kivy.properties import ObjectProperty, StringProperty
 class MainMenu(FloatLayout):
 
     def releaseBorrowBtn(self, arg):
+        self.clear_widgets()
         from Basic.Borrow import Borrow
-        Borrow.borrowStart()
+        Borrow.borrowStart(self)
     
     def releaseReturnBtn(self, arg):
         print('2')

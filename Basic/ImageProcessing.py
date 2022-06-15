@@ -13,7 +13,7 @@ class ImageProcessing:
     def capture():
         capture = cv2.VideoCapture(0)
         ret, frame = capture.read()
-        if ret == True:
+        if ret:
             return(frame)
         else:
             #loglog
