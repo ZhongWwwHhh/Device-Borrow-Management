@@ -30,7 +30,7 @@ def decodeDisplay(imagex1):
         img_PIL = Image.fromarray(cv2.cvtColor(imagex1, cv2.COLOR_BGR2RGB))
 
         # 参数（字体，默认大小）
-        font = ImageFont.truetype('fontx/hwst.ttf', 35)
+        font = ImageFont.truetype('chinese.msyh.ttf', 35)
         # 字体颜色（rgb)
         fillColor = (0,255,255)
         # 文字输出位置
