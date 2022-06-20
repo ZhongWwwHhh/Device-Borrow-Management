@@ -16,11 +16,21 @@ class Borrow:
         # define a capture for ImageProcessing.takeCapture()
         capture = cv2.VideoCapture(0)
         
+        # take picture, decode and prevent mistake
+        lastResult = None
+        sameResultNum = 0
         while True:
             frame = ImageProcessing.takeCapture(self, capture)
             result = ImageProcessing.deCode(self, frame)
             if result:
-                break
+                if result == lastResult:
+                    sameResultNum += 1
+                    if sameResultNum >= 3:
+                        break
+                else:
+                    lastResult = result
+                    sameResultNum = 1
+
         
         
         print('result:{}'.format(result))
