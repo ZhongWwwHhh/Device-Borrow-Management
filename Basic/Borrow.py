@@ -42,6 +42,7 @@ class Borrow:
         
         for line in lines:
             line = line.replace('\n', '').replace('\r', '')
+        # if find, change state of device
             if line == result:
                 foundDevice = True
                 print(line)
