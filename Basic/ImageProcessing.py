@@ -1,5 +1,4 @@
-# needs opencv_python, pyzbar
-import cv2
+# needs pyzbar
 from pyzbar.pyzbar import decode
 
 class ImageProcessing:

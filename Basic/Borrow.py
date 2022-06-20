@@ -31,6 +31,24 @@ class Borrow:
                     lastResult = result
                     sameResultNum = 1
 
+        print('result:', result)
+
+        # search information
+        foundDevice = False
+        result = str(result)
+
+        with open('Configure/deviceList.txt', 'r+') as deviceList:
+            lines = deviceList.readlines()
         
+        for line in lines:
+            line = line.replace('\n', '').replace('\r', '')
+            if line == result:
+                foundDevice = True
+                print(line)
+                break
         
-        print('result:{}'.format(result))
+        # give result screen
+        if foundDevice:
+            print('success')
+        else:
+            print('no device')
