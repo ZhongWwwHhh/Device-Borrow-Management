@@ -1,5 +1,7 @@
 # when borrow
 # import def for capture
+
+import pickle
 from Basic.ImageProcessing import ImageProcessing
 
 import cv2
@@ -33,23 +35,20 @@ class Borrow:
 
         print('result:', result)
 
-        # search information
-        foundDevice = False
+        # search information and change state
         result = str(result)
 
-        with open('Configure/deviceList.txt', 'r+') as deviceList:
-            lines = deviceList.readlines()
+        with open('Configure/deviceList', 'rb') as fileList:
+            deviceList = pickle.load(fileList)
         
-        for line in lines:
-            line = line.replace('\n', '').replace('\r', '')
-        # if find, change state of device
-            if line == result:
-                foundDevice = True
-                print(line)
-                break
-        
-        # give result screen
-        if foundDevice:
-            print('success')
+        if result in deviceList:
+            deviceList[result] = 0
+            with open('Configure/deviceList', 'wb') as fileList:
+                pickle.dump(deviceList, fileList)
+            print('yes')
+
         else:
-            print('no device')
+            print('no')
+
+        
+
