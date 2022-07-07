@@ -2,19 +2,34 @@
 # import def for capture
 
 import pickle
+from unicodedata import name
+from kivy.uix.screenmanager import Screen
 from Basic.ImageProcessing import ImageProcessing
+from kivy.lang import Builder
 
 import cv2
 
-class Borrow:
-    
-    def __init__(self):
-        pass
-    
+Builder.load_file('Basic/borrow.kv')
+
+class Borrow(Screen):
+    pass
+
+class BorrowProcessing():
+
+    # set new screen & change screen
+    def scChangeBorrow(self, screenManager):
+        scBorrow = Borrow(name = 'scBorrow')
+        screenManager.add_widget(scBorrow)
+        screenManager.current = 'scBorrow'
+
     # main processing
-    def borrowStart(self):
+    def borrowStart(self, screenManager):
+        
+        BorrowProcessing.scChangeBorrow(self, screenManager)
+
         # start borrow process
         print('borrow started')
+        '''
         # define a capture for ImageProcessing.takeCapture()
         capture = cv2.VideoCapture(0)
         
@@ -49,6 +64,9 @@ class Borrow:
 
         else:
             print('no')
+        '''
+
+        print('asdfghjkl')
 
         
 
