@@ -1,5 +1,13 @@
 #:kivy 2.1.0
 
 <Borrow>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            # self here refers to the widget i.e FloatLayout
+            pos: self.pos
+            size: self.size
+
     ZhBtn:
         text: '哈哈'

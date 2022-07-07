@@ -16,20 +16,17 @@ class Borrow(Screen):
 
 class BorrowProcessing():
 
-    # set new screen & change screen
-    def scChangeBorrow(self, screenManager):
-        scBorrow = Borrow(name = 'scBorrow')
-        screenManager.add_widget(scBorrow)
-        screenManager.current = 'scBorrow'
-
     # main processing
     def borrowStart(self, screenManager):
-        
-        BorrowProcessing.scChangeBorrow(self, screenManager)
+
+        # change screen
+        from Basic.GuiControl import changeScreen
+        scBorrow = Borrow(name  = 'scBorrow')
+        changeScreen(screenManager, scBorrow, 'scBorrow')
 
         # start borrow process
         print('borrow started')
-        '''
+        
         # define a capture for ImageProcessing.takeCapture()
         capture = cv2.VideoCapture(0)
         
@@ -64,7 +61,7 @@ class BorrowProcessing():
 
         else:
             print('no')
-        '''
+        
 
         print('asdfghjkl')
 
