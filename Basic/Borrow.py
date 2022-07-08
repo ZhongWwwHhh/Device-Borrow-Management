@@ -49,16 +49,15 @@ class BorrowProcessing():
 
         # search information and change state
         result = str(result)
-
-        with open('Configure/deviceList', 'rb') as fileList:
-            deviceList = pickle.load(fileList)
         
-        if result in deviceList:
-            deviceList[result] = 0
-            with open('Configure/deviceList', 'wb') as fileList:
-                pickle.dump(deviceList, fileList)
-            print('yes')
+        import Basic.DeviceProcessing as DeviceProcessing
 
+        deviceList = DeviceProcessing.readFile('Configure/deviceList')
+
+        if DeviceProcessing.searchDevice(result, deviceList):
+            deviceList = DeviceProcessing.changeDeviceStatus(result, deviceList, 0)
+            DeviceProcessing.writeFile('Configure/deviceList', deviceList)
+            print('yes')
         else:
             print('no')
         

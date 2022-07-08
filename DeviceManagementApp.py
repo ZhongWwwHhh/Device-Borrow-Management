@@ -10,6 +10,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 screenManager = ScreenManager()
 
+# define main screen with three buttons
 class MainMenu(Screen):
 
     def releaseBorrowBtn(self, arg):
