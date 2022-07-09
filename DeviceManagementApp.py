@@ -45,7 +45,11 @@ class MainMenu(Screen):
         global firstManage
         from Basic.Manage import Manage
         Manage.getSM(screenManager)
-        Manage.showDeviceStatus(firstManage)    
+        if firstManage:
+            Manage.showDeviceStatus()
+            firstManage = False
+        else:
+            GuiControl.changeScreen(screenManager, currentScreen = 'scManage')
 
 
 # main App

@@ -27,17 +27,11 @@ class ManageScreen(Screen):
 
 
 class Manage():
-    def showDeviceStatus(firstManage):
-
+    def showDeviceStatus():
         # change screen
-        if firstManage:
-            scManage = ManageScreen(name  = 'scManage')
-            global screenManager
-            GuiControl.changeScreen(screenManager, scManage, 'scManage')
-        else:
-            GuiControl.changeScreen(screenManager, currentScreen = 'scManage')
-
-
+        scManage = ManageScreen(name  = 'scManage')
+        global screenManager
+        GuiControl.changeScreen(screenManager, scManage, 'scManage')
 
     def getSM(mainScreenManager):
         global screenManager
