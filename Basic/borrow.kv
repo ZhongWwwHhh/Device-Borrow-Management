@@ -8,6 +8,17 @@
             # self here refers to the widget i.e FloatLayout
             pos: self.pos
             size: self.size
+    
+    Camera:
+        id: camera
+        play: True
+        size_hint: 1, 1
+        pos_hint: {'x': 0, 'y': 0}
+        
 
     ZhBtn:
-        text: '哈哈'
+        text: '确认借出'
+        font_size: 50
+        size_hint: .2, .1
+        pos_hint: {'x': .66, 'y': .2}
+        on_press: root.capture()
