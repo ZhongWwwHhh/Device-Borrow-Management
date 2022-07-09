@@ -6,11 +6,9 @@ from Basic.GuiControl import changeScreen
 import Basic.ImageProcessing as ImageProcessing
 from kivy.lang import Builder
 
-import cv2, threading, time
+import cv2, time
 
 Builder.load_file('Basic/borrow.kv')
-
-
 
 # GUI
 class Borrow(Screen):
@@ -42,13 +40,22 @@ class Borrow(Screen):
 
         deviceList = DeviceProcessing.readFile('Configure/deviceList')
 
+        success = False
         if DeviceProcessing.searchDevice(result, deviceList):
             deviceList = DeviceProcessing.changeDeviceStatus(result, deviceList, 0)
             DeviceProcessing.writeFile('Configure/deviceList', deviceList)
             print('yes')
+            success = True
         else:
             print('no')
         
+        global screenManager
+        if success:
+            changeScreen(screenManager, currentScreen = 'scMainMenu')
+        else:
+            pass
+    
+    def cancel(self):
         global screenManager
         changeScreen(screenManager, currentScreen = 'scMainMenu')
 
