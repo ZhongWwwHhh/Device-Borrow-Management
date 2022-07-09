@@ -13,6 +13,7 @@ import Basic.GuiControl as GuiControl
 screenManager = ScreenManager()
 
 firstRun = True
+firstManage = True
 
 # define main screen with three buttons
 class MainMenu(Screen):
@@ -20,6 +21,7 @@ class MainMenu(Screen):
     def releaseBorrowBtn(self, arg):
         from Basic.Borrow import BorrowProcessing
         BorrowProcessing.getSM(screenManager)
+        BorrowProcessing.getNewStatus(0)
         global firstRun
         if firstRun:
             BorrowProcessing.borrowStart(self)
@@ -28,10 +30,23 @@ class MainMenu(Screen):
             GuiControl.changeScreen(screenManager, currentScreen = 'scBorrow')
     
     def releaseReturnBtn(self, arg):
-        print('2')
+        from Basic.Borrow import BorrowProcessing
+        BorrowProcessing.getSM(screenManager)
+        BorrowProcessing.getNewStatus(1)
+        global firstRun
+        if firstRun:
+            BorrowProcessing.borrowStart(self)
+            firstRun = False
+        else:
+            GuiControl.changeScreen(screenManager, currentScreen = 'scBorrow')
+
     
     def releaseManageBtn(self, arg):
-        print('3')
+        global firstManage
+        from Basic.Manage import Manage
+        Manage.getSM(screenManager)
+        Manage.showDeviceStatus(firstManage)    
+
 
 # main App
 class DeviceManagementApp(App):

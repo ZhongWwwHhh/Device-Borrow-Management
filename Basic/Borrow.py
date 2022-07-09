@@ -42,7 +42,8 @@ class Borrow(Screen):
 
         success = False
         if DeviceProcessing.searchDevice(result, deviceList):
-            deviceList = DeviceProcessing.changeDeviceStatus(result, deviceList, 0)
+            global newStatus
+            deviceList = DeviceProcessing.changeDeviceStatus(result, deviceList, newStatus)
             DeviceProcessing.writeFile('Configure/deviceList', deviceList)
             print('yes')
             success = True
@@ -111,5 +112,10 @@ class BorrowProcessing():
     def getSM(mainScreenManager):
         global screenManager
         screenManager = mainScreenManager
+
+    def getNewStatus(Status):
+        global newStatus
+        newStatus = Status
+
     
 

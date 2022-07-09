@@ -1,0 +1,22 @@
+#:kivy 2.1.0
+
+<ManageScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            # self here refers to the widget i.e FloatLayout
+            pos: self.pos
+            size: self.size
+    
+    ZhBtn:
+        id: devicestatusbtn
+        font_size: 30
+        on_press: root.update()
+    
+    ZhBtn:
+        text: '返回'
+        font_size: 50
+        size_hint: .2, .1
+        pos_hint: {'x': .66, 'y': .2}
+        on_press: root.cancel()
